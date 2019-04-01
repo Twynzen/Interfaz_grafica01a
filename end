@@ -1,0 +1,47 @@
+[33mcommit fed1b3769b39f3efcb594a8732331676adcf38ee[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Raziel <razzziel001@gmail.com>
+Date:   Mon Apr 1 00:35:27 2019 -0500
+
+    Agrego colores a la letra y a su propio fondo
+
+[33mcommit 5dc1ea7bb445a2d15a0faa9dc6667c7551a5da92[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Raziel <razzziel001@gmail.com>
+Date:   Thu Mar 28 20:33:43 2019 -0500
+
+    Agrego una etiqueta de texto y aplico un layout para quitar lo que este por defecto
+
+[33mcommit 77f2a5602020efef03223cdb74cb5a580ed5d981[m
+Author: Raziel <razzziel001@gmail.com>
+Date:   Wed Mar 27 16:55:20 2019 -0500
+
+    Se coloco el panel sobre la ventana
+
+[33mcommit 13190a1bc837057a1d986c5ee596030561a504bd[m
+Author: Raziel <razzziel001@gmail.com>
+Date:   Wed Mar 27 16:39:27 2019 -0500
+
+    Se pone color de fondo
+
+[33mcommit 91953a9fbf49a76cb5daa6c216f92fdd798c6307[m
+Author: Raziel <razzziel001@gmail.com>
+Date:   Tue Mar 26 15:08:38 2019 -0500
+
+    Incluyo un metodo que por defecto ubique la aparicion de la ventana
+
+[33mcommit 7be6253073120844885ffa5b8306d8570a07c77d[m
+Author: Raziel <razzziel001@gmail.com>
+Date:   Tue Mar 26 15:03:06 2019 -0500
+
+    Se aplicaron metodos de ubicación de aparicion de ventana
+
+[33mcommit 989a363c7197001cdd87e11f7166cdc7c04ba937[m
+Author: Raziel <razzziel001@gmail.com>
+Date:   Mon Mar 25 21:00:36 2019 -0500
+
+    Agrego la opción de cerrar  ventana termine el programa y el titulo
+
+[33mcommit 17a690f1fa5bcc924a4fad25d2d94944326d3138[m
+Author: Raziel <razzziel001@gmail.com>
+Date:   Sun Mar 24 20:01:36 2019 -0500
+
+    Creada la ventana mirando la API JFrame
