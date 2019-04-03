@@ -3,6 +3,7 @@ package Ventana;
 
 //import java.awt.Color;
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JFrame; //Para diseñar cuadros de dialogo, creo
 import javax.swing.JLabel; //para etiquetas
 import javax.swing.JPanel; //libreria para crear paneles
@@ -39,10 +40,11 @@ public class Ventana extends JFrame{
         JLabel etiqueta = new JLabel("Hola",SwingConstants.CENTER);//se crea una etiquet
         //etiqueta.setText("HOLA"); //Establecemos el texto de la etiqueta
         //etiqueta.setHorizontalAlignment(SwingConstants.CENTER); // esete se utiliza para enviar el texto con set.text y no llmar el contrctor de Jlabel
-        etiqueta.setBounds(10, 10, 50, 50); //Ubico la etiqueta y el tamaño del fondo de la etiqueta
+        etiqueta.setBounds(10, 10, 100, 50); //Ubico la etiqueta y el tamaño del fondo de la etiqueta
         etiqueta.setForeground(Color.white); //El color del objeto mencionado
         etiqueta.setOpaque(true);//permitimos pintar el fondo del objeto, quita el por defecto
         etiqueta.setBackground(Color.black);//Cambio color del fondo del objet
+        etiqueta.setFont(new Font("chiller",Font.ITALIC,30));//Establece la fuente del texto
         panel.add(etiqueta); //Agregamos la etiqueta al panel
         
         
