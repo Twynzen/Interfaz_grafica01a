@@ -4,6 +4,7 @@ package Ventana;
 //import java.awt.Color;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame; //Para diseñar cuadros de dialogo, creo
 import javax.swing.JLabel; //para etiquetas
 import javax.swing.JPanel; //libreria para crear paneles
@@ -37,17 +38,21 @@ public class Ventana extends JFrame{
         panel.setLayout(null); //Desactivando el diseño por defecto
         this.getContentPane().add(panel);//Se coloca el panel sobre la ventana
         
-        JLabel etiqueta = new JLabel("Hola",SwingConstants.CENTER);//se crea una etiquet
+        //Etiqueta 1 tipo texto
+        JLabel etiqueta = new JLabel("Tituto de ventana",SwingConstants.CENTER);//se crea una etiquet
         //etiqueta.setText("HOLA"); //Establecemos el texto de la etiqueta
         //etiqueta.setHorizontalAlignment(SwingConstants.CENTER); // esete se utiliza para enviar el texto con set.text y no llmar el contrctor de Jlabel
-        etiqueta.setBounds(10, 10, 100, 50); //Ubico la etiqueta y el tamaño del fondo de la etiqueta
-        etiqueta.setForeground(Color.white); //El color del objeto mencionado
-        etiqueta.setOpaque(true);//permitimos pintar el fondo del objeto, quita el por defecto
-        etiqueta.setBackground(Color.black);//Cambio color del fondo del objet
-        etiqueta.setFont(new Font("chiller",Font.ITALIC,30));//Establece la fuente del texto
+        etiqueta.setBounds(-15, 10, 500, 50); //Ubico la etiqueta y el tamaño del fondo de la etiqueta
+        etiqueta.setForeground(Color.BLACK); //El color del objeto mencionado
+        //etiqueta.setOpaque(true);//permitimos pintar el fondo del objeto, quita el por defecto
+        //etiqueta.setBackground(Color.black);//Cambio color del fondo del objet
+        etiqueta.setFont(new Font("chiller",Font.ITALIC,50));//Establece la fuente del texto
         panel.add(etiqueta); //Agregamos la etiqueta al panel
         
-        
+        //Etiqueta 2 tipo imagen
+        JLabel etiqueta2 = new JLabel (new ImageIcon("400x300img1.jpg"));
+        etiqueta2.setBounds(10, 80, 400, 300);
+        panel.add(etiqueta2);
     }
     
 }
