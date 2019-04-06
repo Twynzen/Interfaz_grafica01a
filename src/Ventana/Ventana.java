@@ -54,7 +54,7 @@ public class Ventana extends JFrame{
         ImageIcon imagen = new ImageIcon("400x300img1.jpg");
         JLabel etiqueta2 = new JLabel();
         etiqueta2.setBounds(80, 90, 400, 300);
-        etiqueta2.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(etiqueta2.getWidth(), etiqueta2.getHeight(), Image.SCALE_SMOOTH)));
+        etiqueta2.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(etiqueta2.getWidth(), etiqueta2.getHeight(), Image.SCALE_SMOOTH)));//Adecua el tamaño de la imagen al de la etiqueta
         panel.add(etiqueta2);
     }
     
