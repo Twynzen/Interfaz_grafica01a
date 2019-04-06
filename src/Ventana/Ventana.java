@@ -4,6 +4,7 @@ package Ventana;
 //import java.awt.Color;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame; //Para diseñar cuadros de dialogo, creo
 import javax.swing.JLabel; //para etiquetas
@@ -50,8 +51,10 @@ public class Ventana extends JFrame{
         panel.add(etiqueta); //Agregamos la etiqueta al panel
         
         //Etiqueta 2 tipo imagen
-        JLabel etiqueta2 = new JLabel (new ImageIcon("400x300img1.jpg"));
-        etiqueta2.setBounds(10, 80, 400, 300);
+        ImageIcon imagen = new ImageIcon("400x300img1.jpg");
+        JLabel etiqueta2 = new JLabel();
+        etiqueta2.setBounds(80, 90, 400, 300);
+        etiqueta2.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(etiqueta2.getWidth(), etiqueta2.getHeight(), Image.SCALE_SMOOTH)));
         panel.add(etiqueta2);
     }
     
