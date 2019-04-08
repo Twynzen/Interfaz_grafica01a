@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame; //Para diseñar cuadros de dialogo, creo
 import javax.swing.JLabel; //para etiquetas
 import javax.swing.JPanel; //libreria para crear paneles
@@ -13,6 +14,9 @@ import javax.swing.SwingConstants;
 
 
 public class Ventana extends JFrame{
+    public JPanel panel;
+    
+    
     public Ventana(){ //Constructor //Se revisa la api para ver bien como funcionan los metodos
         this.setSize(500, 500);//Esto establece el tamaño de la ventana
          setTitle("Titulo de ventana"); // Establrece e titulo de la ventana
@@ -34,11 +38,21 @@ public class Ventana extends JFrame{
     
     
     private void iniciarComponentes(){
-        JPanel panel = new JPanel();   //Creacion de un panel
+        colocarPaneles();
+        colocarEtiquetas();
+        colocarBotones();
+        
+    }
+    
+    private void colocarPaneles(){
+        panel = new JPanel();   //Creacion de un panel
         //panel.setBackground(Color.BLUE); // color del panel
         panel.setLayout(null); //Desactivando el diseño por defecto
         this.getContentPane().add(panel);//Se coloca el panel sobre la ventana
-        
+         
+    }
+    
+    private void colocarEtiquetas(){
         //Etiqueta 1 tipo texto
         JLabel etiqueta = new JLabel("Tituto de ventana",SwingConstants.CENTER);//se crea una etiquet
         //etiqueta.setText("HOLA"); //Establecemos el texto de la etiqueta
@@ -58,4 +72,13 @@ public class Ventana extends JFrame{
         panel.add(etiqueta2);
     }
     
+    private void colocarBotones(){
+        JButton boton1 = new JButton("Click");
+        // boton1.setText("Click");
+        boton1.setBounds(100, 100, 100, 40);
+        boton1.setEnabled(true);//habilita o inabilita la interacción con el boton
+        boton1.setMnemonic('a');//Establecesmos alt + letra
+        panel.add(boton1);
+        
+    }
 }
