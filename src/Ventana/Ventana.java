@@ -73,6 +73,7 @@ public class Ventana extends JFrame{
     }
     
     private void colocarBotones(){
+        //Boton1, boton de texto
         JButton boton1 = new JButton("Click");
         // boton1.setText("Click");
         boton1.setBounds(100, 100, 100, 40);
@@ -80,7 +81,15 @@ public class Ventana extends JFrame{
         boton1.setMnemonic('a');//Establecesmos alt + letra
         boton1.setForeground(Color.RED); //Establece el color de la letra del boton
         boton1.setFont(new Font("cooper black",Font.BOLD/*establece el estilo*/,20));//Establece la fuente de la letra del boton
-        panel.add(boton1);
+        panel.add(boton1); //coloco el boton sobre el panel
         
+        //boton2 boton de imagen
+        JButton boton2 = new JButton();
+        boton2.setBounds(100,200,100,80);
+        //boton2.setOpaque(true);//pos si por defecto el boton no lo permite
+        //boton2.setBackground(Color.yellow);//Establece de color de fondo del boton
+        ImageIcon boton_2 = new ImageIcon("boton2.jpg");
+        boton2.setIcon(new ImageIcon(boton_2.getImage().getScaledInstance(boton2.getWidth(), boton2.getHeight(), Image.SCALE_SMOOTH)));// 1 con el ancho del boton 2 con el alto y 3 con el escalado para que no peirda calidad de pixeles
+        panel.add(boton2);
     }
 }
