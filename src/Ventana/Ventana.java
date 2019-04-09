@@ -61,7 +61,7 @@ public class Ventana extends JFrame{
         etiqueta.setForeground(Color.BLACK); //El color del objeto mencionado
         //etiqueta.setOpaque(true);//permitimos pintar el fondo del objeto, quita el por defecto
         //etiqueta.setBackground(Color.black);//Cambio color del fondo del objet
-        etiqueta.setFont(new Font("chiller",Font.ITALIC,50));//Establece la fuente del texto
+        etiqueta.setFont(new Font("cooper black",0,50));//Establece la fuente del texto
         panel.add(etiqueta); //Agregamos la etiqueta al panel
         
         //Etiqueta 2 tipo imagen
@@ -78,6 +78,8 @@ public class Ventana extends JFrame{
         boton1.setBounds(100, 100, 100, 40);
         boton1.setEnabled(true);//habilita o inabilita la interacción con el boton
         boton1.setMnemonic('a');//Establecesmos alt + letra
+        boton1.setForeground(Color.RED); //Establece el color de la letra del boton
+        boton1.setFont(new Font("cooper black",Font.BOLD/*establece el estilo*/,20));//Establece la fuente de la letra del boton
         panel.add(boton1);
         
     }
