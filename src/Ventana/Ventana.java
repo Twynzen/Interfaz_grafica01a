@@ -5,11 +5,13 @@ package Ventana;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame; //Para diseñar cuadros de dialogo, creo
 import javax.swing.JLabel; //para etiquetas
 import javax.swing.JPanel; //libreria para crear paneles
+import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
 
@@ -40,7 +42,8 @@ public class Ventana extends JFrame{
     private void iniciarComponentes(){
         colocarPaneles();
         colocarEtiquetas();
-        colocarBotones();
+        //colocarBotones();
+        colocarRadiobotones();
         
     }
     
@@ -91,5 +94,27 @@ public class Ventana extends JFrame{
         ImageIcon boton_2 = new ImageIcon("boton2.jpg");
         boton2.setIcon(new ImageIcon(boton_2.getImage().getScaledInstance(boton2.getWidth(), boton2.getHeight(), Image.SCALE_SMOOTH)));// 1 con el ancho del boton 2 con el alto y 3 con el escalado para que no peirda calidad de pixeles
         panel.add(boton2);
+    }
+    
+    
+    private void colocarRadiobotones(){
+            JRadioButton radioBoton1 = new JRadioButton("Opcion 1",true);//el boleano marca la bolita antes que el usuario lo mire
+            radioBoton1.setBounds(50, 100, 100, 50);
+            radioBoton1.setEnabled(true);//este metodo deshabilita la opción
+            panel.add(radioBoton1);
+            
+            JRadioButton radioBoton2 = new JRadioButton("Opcion 2",false);
+            radioBoton2.setBounds(50, 150, 100, 50);
+            panel.add(radioBoton2);
+            
+            JRadioButton radioBoton3 = new JRadioButton("Opcion 3",false);
+            radioBoton3.setBounds(50, 200, 100, 50);
+            panel.add(radioBoton3);
+            
+                ButtonGroup gruporaBotones = new ButtonGroup();//agrupa los botones para que solo se pueda elegir una opción
+                gruporaBotones.add(radioBoton1);
+                gruporaBotones.add(radioBoton2);
+                gruporaBotones.add(radioBoton3); 
+                
     }
 }
