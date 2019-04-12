@@ -12,6 +12,7 @@ import javax.swing.JFrame; //Para diseñar cuadros de dialogo, creo
 import javax.swing.JLabel; //para etiquetas
 import javax.swing.JPanel; //libreria para crear paneles
 import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 
@@ -42,8 +43,9 @@ public class Ventana extends JFrame{
     private void iniciarComponentes(){
         colocarPaneles();
         colocarEtiquetas();
-        //colocarBotones();
+       // colocarBotones();
         colocarRadiobotones();
+        colocarCajasdetexto();
         
     }
     
@@ -116,5 +118,13 @@ public class Ventana extends JFrame{
                 gruporaBotones.add(radioBoton2);
                 gruporaBotones.add(radioBoton3); 
                 
+    }
+    
+    private void colocarCajasdetexto(){
+        JTextField caja = new JTextField();
+        caja.setBounds(200,50,100,30);
+        caja.setText("Escribe...");
+        System.out.println("Texto de la caja"+caja.getText());
+        panel.add(caja);
     }
 }
