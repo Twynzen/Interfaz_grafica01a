@@ -8,6 +8,7 @@ import java.awt.Image;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame; //Para diseñar cuadros de dialogo, creo
 import javax.swing.JLabel; //para etiquetas
 import javax.swing.JPanel; //libreria para crear paneles
@@ -43,11 +44,12 @@ public class Ventana extends JFrame{
     
     private void iniciarComponentes(){
         colocarPaneles();
-        //colocarEtiquetas();
-        //colocarBotones();
-        // colocarRadiobotones();
-        //colocarCajasdetexto();
-        colocarAreasdetexto();
+        colocarEtiquetas();
+        colocarBotones();
+        //colocarRadiobotones();
+        colocarCajasdetexto();
+        //colocarAreasdetexto();
+        //colocarListasDesplegables();
     }
     
     private void colocarPaneles(){
@@ -60,36 +62,39 @@ public class Ventana extends JFrame{
     
     private void colocarEtiquetas(){
         //Etiqueta 1 tipo texto
-        JLabel etiqueta = new JLabel("Tituto de ventana",SwingConstants.CENTER);//se crea una etiquet
+        JLabel etiqueta = new JLabel("Ingrese su nombre: ",SwingConstants.LEFT);//se crea una etiquet
         //etiqueta.setText("HOLA"); //Establecemos el texto de la etiqueta
         //etiqueta.setHorizontalAlignment(SwingConstants.CENTER); // esete se utiliza para enviar el texto con set.text y no llmar el contrctor de Jlabel
-        etiqueta.setBounds(-15, 10, 500, 50); //Ubico la etiqueta y el tamaño del fondo de la etiqueta
+        etiqueta.setBounds(10, 10, 500, 50); //Ubico la etiqueta y el tamaño del fondo de la etiqueta
         etiqueta.setForeground(Color.BLACK); //El color del objeto mencionado
         //etiqueta.setOpaque(true);//permitimos pintar el fondo del objeto, quita el por defecto
         //etiqueta.setBackground(Color.black);//Cambio color del fondo del objet
-        etiqueta.setFont(new Font("cooper black",0,50));//Establece la fuente del texto
+        etiqueta.setFont(new Font("cooper black",0,20));//Establece la fuente del texto
         panel.add(etiqueta); //Agregamos la etiqueta al panel
         
         //Etiqueta 2 tipo imagen
+        /*
         ImageIcon imagen = new ImageIcon("400x300img1.jpg");
         JLabel etiqueta2 = new JLabel();
         etiqueta2.setBounds(80, 90, 400, 300);
         etiqueta2.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(etiqueta2.getWidth(), etiqueta2.getHeight(), Image.SCALE_SMOOTH)));//Adecua el tamaño de la imagen al de la etiqueta
         panel.add(etiqueta2);
+        */
     }
     
     private void colocarBotones(){
         //Boton1, boton de texto
-        JButton boton1 = new JButton("Click");
+        JButton boton1 = new JButton("¡Pulsa aquí!");
         // boton1.setText("Click");
-        boton1.setBounds(100, 100, 100, 40);
+        boton1.setBounds(100, 100, 200, 40);
         boton1.setEnabled(true);//habilita o inabilita la interacción con el boton
         boton1.setMnemonic('a');//Establecesmos alt + letra
-        boton1.setForeground(Color.RED); //Establece el color de la letra del boton
-        boton1.setFont(new Font("cooper black",Font.BOLD/*establece el estilo*/,20));//Establece la fuente de la letra del boton
+        boton1.setForeground(Color.black); //Establece el color de la letra del boton
+        boton1.setFont(new Font("cooper black",Font.PLAIN/*establece el estilo*/,20));//Establece la fuente de la letra del boton
         panel.add(boton1); //coloco el boton sobre el panel
         
         //boton2 boton de imagen
+        /*
         JButton boton2 = new JButton();
         boton2.setBounds(100,200,100,80);
         //boton2.setOpaque(true);//pos si por defecto el boton no lo permite
@@ -97,6 +102,7 @@ public class Ventana extends JFrame{
         ImageIcon boton_2 = new ImageIcon("boton2.jpg");
         boton2.setIcon(new ImageIcon(boton_2.getImage().getScaledInstance(boton2.getWidth(), boton2.getHeight(), Image.SCALE_SMOOTH)));// 1 con el ancho del boton 2 con el alto y 3 con el escalado para que no peirda calidad de pixeles
         panel.add(boton2);
+        */
     }
     
     
@@ -123,7 +129,7 @@ public class Ventana extends JFrame{
     
     private void colocarCajasdetexto(){
         JTextField caja = new JTextField();
-        caja.setBounds(200,50,100,30);
+        caja.setBounds(10,60,300,30);
         caja.setText("Escribe...");
         System.out.println("Texto de la caja"+caja.getText());
         panel.add(caja);
@@ -138,4 +144,15 @@ public class Ventana extends JFrame{
         System.out.println("EL texto es: "+areaTexto.getText());
         panel.add(areaTexto);
     }
+    
+    private void colocarListasDesplegables(){
+        String [] paises = {"Perú","Colombia","Ecuador","Rusia"};
+        
+        JComboBox listaDesplega1 = new JComboBox(paises);
+        listaDesplega1.setBounds(20,20,100,30);
+        listaDesplega1.addItem("Venezuela");//Se agrega un objeto a mi JComboBox
+        listaDesplega1.setSelectedItem("Colombia");//Selecciona el primero objeto visto
+        panel.add(listaDesplega1);
+    }
+    
 }
