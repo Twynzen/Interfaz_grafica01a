@@ -5,6 +5,8 @@ package Ventana;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,9 +22,12 @@ import javax.swing.SwingConstants;
 
 public class Ventana extends JFrame{
     public JPanel panel;
+    public JLabel etiqueta, respuesta;
+    public JTextField caja;
+    public JButton boton1;
     
     
-    public Ventana(){ //Constructor //Se revisa la api para ver bien como funcionan los metodos
+    public Ventana() { //Constructor //Se revisa la api para ver bien como funcionan los metodos
         this.setSize(500, 500);//Esto establece el tamaño de la ventana
          setTitle("Titulo de ventana"); // Establrece e titulo de la ventana
         //Metodo para cerrar la ventana y que se termine el programa
@@ -40,6 +45,7 @@ public class Ventana extends JFrame{
 
        setDefaultCloseOperation(EXIT_ON_CLOSE); 
     }
+
     
     
     private void iniciarComponentes(){
@@ -62,7 +68,7 @@ public class Ventana extends JFrame{
     
     private void colocarEtiquetas(){
         //Etiqueta 1 tipo texto
-        JLabel etiqueta = new JLabel("Ingrese su nombre: ",SwingConstants.LEFT);//se crea una etiquet
+        etiqueta = new JLabel("Ingrese su nombre: ",SwingConstants.LEFT);//se crea una etiquet
         //etiqueta.setText("HOLA"); //Establecemos el texto de la etiqueta
         //etiqueta.setHorizontalAlignment(SwingConstants.CENTER); // esete se utiliza para enviar el texto con set.text y no llmar el contrctor de Jlabel
         etiqueta.setBounds(10, 10, 500, 50); //Ubico la etiqueta y el tamaño del fondo de la etiqueta
@@ -84,14 +90,31 @@ public class Ventana extends JFrame{
     
     private void colocarBotones(){
         //Boton1, boton de texto
-        JButton boton1 = new JButton("¡Pulsa aquí!");
+         boton1 = new JButton("¡Pulsa aquí!");
         // boton1.setText("Click");
         boton1.setBounds(100, 100, 200, 40);
         boton1.setEnabled(true);//habilita o inabilita la interacción con el boton
         boton1.setMnemonic('a');//Establecesmos alt + letra
         boton1.setForeground(Color.black); //Establece el color de la letra del boton
-        boton1.setFont(new Font("cooper black",Font.PLAIN/*establece el estilo*/,20));//Establece la fuente de la letra del boton
+        boton1.setFont(new Font("arial",1/*establece el estilo*/,20));//Establece la fuente de la letra del boton
         panel.add(boton1); //coloco el boton sobre el panel
+        
+        
+        respuesta = new JLabel();
+        respuesta.setBounds(50,200,300,40);
+        respuesta.setFont(new Font ("arial",1,20));
+        panel.add(respuesta);
+        
+        //agrego el evento de tipo ActionListener  
+        ActionListener oyenteDeAccion = new ActionListener() { //llamar el action listener exige que se invoque un evento por ser un interface
+             @Override
+             public void actionPerformed(ActionEvent ae) {
+                respuesta.setText("Hola "+caja.getText());
+             }
+         }; 
+        boton1.addActionListener(oyenteDeAccion);
+        
+        
         
         //boton2 boton de imagen
         /*
@@ -128,7 +151,7 @@ public class Ventana extends JFrame{
     }
     
     private void colocarCajasdetexto(){
-        JTextField caja = new JTextField();
+        caja = new JTextField();
         caja.setBounds(10,60,300,30);
         caja.setText("Escribe...");
         System.out.println("Texto de la caja"+caja.getText());
