@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -25,6 +27,7 @@ public class Ventana extends JFrame{
     public JLabel etiqueta, respuesta;
     public JTextField caja;
     public JButton boton1;
+    public JTextArea areaTexto;
     
     
     public Ventana() { //Constructor //Se revisa la api para ver bien como funcionan los metodos
@@ -53,8 +56,8 @@ public class Ventana extends JFrame{
         colocarEtiquetas();
         colocarBotones();
         //colocarRadiobotones();
-        colocarCajasdetexto();
-        //colocarAreasdetexto();
+        //colocarCajasdetexto();
+        colocarAreasdetexto();
         //colocarListasDesplegables();
     }
     
@@ -92,27 +95,17 @@ public class Ventana extends JFrame{
         //Boton1, boton de texto
          boton1 = new JButton("¡Pulsa aquí!");
         // boton1.setText("Click");
-        boton1.setBounds(100, 100, 200, 40);
+        boton1.setBounds(150, 400, 200, 40);
         boton1.setEnabled(true);//habilita o inabilita la interacción con el boton
         boton1.setMnemonic('a');//Establecesmos alt + letra
         boton1.setForeground(Color.black); //Establece el color de la letra del boton
         boton1.setFont(new Font("arial",1/*establece el estilo*/,20));//Establece la fuente de la letra del boton
         panel.add(boton1); //coloco el boton sobre el panel
         
+        //eventoOyente1();
+        eventoOyente2raton();
         
-        respuesta = new JLabel();
-        respuesta.setBounds(50,200,300,40);
-        respuesta.setFont(new Font ("arial",1,20));
-        panel.add(respuesta);
         
-        //agrego el evento de tipo ActionListener  
-        ActionListener oyenteDeAccion = new ActionListener() { //llamar el action listener exige que se invoque un evento por ser un interface
-             @Override
-             public void actionPerformed(ActionEvent ae) {
-                respuesta.setText("Hola "+caja.getText());
-             }
-         }; 
-        boton1.addActionListener(oyenteDeAccion);
         
         
         
@@ -152,17 +145,17 @@ public class Ventana extends JFrame{
     
     private void colocarCajasdetexto(){
         caja = new JTextField();
-        caja.setBounds(10,60,300,30);
-        caja.setText("Escribe...");
+        caja.setBounds(10,60,250,250);
+        //caja.setText("Escribe...");
         System.out.println("Texto de la caja"+caja.getText());
         panel.add(caja);
     }
     
     private void colocarAreasdetexto(){
-        JTextArea areaTexto = new JTextArea();
-        areaTexto.setBounds(20,20,300,200);
-        areaTexto.setText("Escriba el texto aquí...");
-        areaTexto.append("\nAñadimos más texto");//Añade más texto
+        areaTexto = new JTextArea();
+        areaTexto.setBounds(10,60,200,200);
+        //areaTexto.setText("Escriba el texto aquí...");
+        //areaTexto.append("\nAñadimos más texto");//Añade más texto
         areaTexto.setEditable(true);//Permite o no que se modifique el texto
         System.out.println("EL texto es: "+areaTexto.getText());
         panel.add(areaTexto);
@@ -178,4 +171,52 @@ public class Ventana extends JFrame{
         panel.add(listaDesplega1);
     }
     
+    private void eventoOyente1(){
+     respuesta = new JLabel();
+        respuesta.setBounds(300,200,300,40);
+        respuesta.setFont(new Font ("arial",1,20));
+        panel.add(respuesta);
+        
+        //agrego el evento de tipo ActionListener  
+        ActionListener oyenteDeAccion = new ActionListener() { //llamar el action listener exige que se invoque un evento por ser un interface
+             @Override
+             public void actionPerformed(ActionEvent ae) {
+                respuesta.setText("Hola "+areaTexto.getText());
+             }
+         }; 
+        boton1.addActionListener(oyenteDeAccion);   
+    }
+    
+    private void eventoOyente2raton(){
+        //Agregi el evento mouseListener
+        MouseListener oyente_mouse = new MouseListener(){
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                areaTexto.append("mouseClicked\n"); //presionar y soltar
+            }
+
+            @Override
+            public void mousePressed(MouseEvent me) {
+                areaTexto.append("mousePressed\n"); //solo presionar
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+                areaTexto.append("mouseReleased\n"); //solo al dejar de presionar
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                areaTexto.append("mouseEntered\n"); //solo mover el cursor sobre el boton
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+                areaTexto.append("mouseExited\n"); //quitar el cursor del boton
+            }
+            
+        };
+        
+        boton1.addMouseListener(oyente_mouse);
+    }
 }
